@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('semester_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('student_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->boolean('status')->default(false);
+            $table->decimal('gpa')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
