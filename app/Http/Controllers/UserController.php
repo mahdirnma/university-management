@@ -18,4 +18,9 @@ class UserController extends Controller
     public function studentLogin(){
         return view('auth.studentLogin');
     }
+
+    public function professorLogin()
+    {
+        return view('auth.professorLogin');
+    }
 }

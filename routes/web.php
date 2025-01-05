@@ -20,3 +20,5 @@ Route::get('/admin/login', [UserController::class, 'adminLogin'])->name('admin.l
 Route::post('/admin/login', [AuthController::class, 'adminLogin'])->name('admin.login');
 
 Route::get('/student/login', [UserController::class, 'studentLogin'])->name('student.login.show');
+
+Route::get('/professor/login', [UserController::class, 'professorLogin'])->name('professor.login.show');
