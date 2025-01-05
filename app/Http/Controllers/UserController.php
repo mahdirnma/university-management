@@ -9,6 +9,9 @@ class UserController extends Controller
     public function index(){
         return view('admin.dashboard');
     }
+    public function student(){
+        return view('student.dashboard');
+    }
     public function preLogin()
     {
         return view('auth.preLogin');

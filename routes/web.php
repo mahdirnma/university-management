@@ -21,6 +21,8 @@ Route::get('/preLogin', [UserController::class, 'preLogin'])->name('preLogin');
 Route::get('/admin/login', [UserController::class, 'adminLogin'])->name('admin.login.show');
 Route::post('/admin/login', [AuthController::class, 'adminLogin'])->name('admin.login');
 
+Route::get('/student', [UserController::class, 'student'])->name('student.dashboard')->middleware('checkStudentLogin');
 Route::get('/student/login', [UserController::class, 'studentLogin'])->name('student.login.show');
+Route::post('/student/login', [AuthController::class, 'studentLogin'])->name('student.login');
 
 Route::get('/professor/login', [UserController::class, 'professorLogin'])->name('professor.login.show');
