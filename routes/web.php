@@ -18,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/preLogin', [UserController::class, 'preLogin'])->name('admin.login.show');
 Route::get('/admin/login', [UserController::class, 'adminLogin'])->name('admin.login.show');
 Route::post('/admin/login', [AuthController::class, 'adminLogin'])->name('admin.login');
+
+Route::get('/student/login', [UserController::class, 'studentLogin'])->name('student.login.show');

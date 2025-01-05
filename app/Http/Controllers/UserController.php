@@ -15,4 +15,7 @@ class UserController extends Controller
     {
         return view('auth.adminLogin');
     }
+    public function studentLogin(){
+        return view('auth.studentLogin');
+    }
 }
