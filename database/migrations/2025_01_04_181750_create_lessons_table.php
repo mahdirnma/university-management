@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('unit_number');
             $table->string('type');
             $table->foreignId('course_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('lesson_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('lesson_id')->nullable()->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('default_semester');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
