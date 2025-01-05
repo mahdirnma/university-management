@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('registration_unit', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('registration_id')->constrained();
+            $table->foreignId('unit_id')->constrained();
+            $table->decimal('score')->nullable();
             $table->timestamps();
         });
     }
