@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/preLogin', [UserController::class, 'preLogin'])->name('admin.login.show');
+Route::get('/', [UserController::class, 'index'])->name('admin.dashboard')->middleware('auth');
+
+Route::get('/preLogin', [UserController::class, 'preLogin'])->name('preLogin');
 Route::get('/admin/login', [UserController::class, 'adminLogin'])->name('admin.login.show');
 Route::post('/admin/login', [AuthController::class, 'adminLogin'])->name('admin.login');
 
