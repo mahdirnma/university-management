@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -30,4 +31,5 @@ Route::get('/professor', [UserController::class, 'professor'])->name('professor.
 Route::get('/professor/login', [UserController::class, 'professorLogin'])->name('professor.login.show');
 Route::post('/professor/login', [AuthController::class, 'professorLogin'])->name('professor.login');
 
-Route::resource('students', StudentController::class)->middleware('auth');
+Route::resource('students', StudentController::class)->except(['show'])->middleware('auth');
+Route::resource('professors', ProfessorController::class)->except(['show'])->middleware('auth');

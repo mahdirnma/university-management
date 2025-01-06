@@ -20,15 +20,15 @@ class ProfessorController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(ProfessorService $professorService)
     {
-        //
+        return $professorService->create();
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProfessorRequest $request)
+    public function store(StoreProfessorRequest $request,ProfessorService $professorService)
     {
         //
     }
@@ -44,7 +44,7 @@ class ProfessorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Professor $professor)
+    public function edit(Professor $professor,ProfessorService $professorService)
     {
         //
     }
@@ -52,7 +52,7 @@ class ProfessorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProfessorRequest $request, Professor $professor)
+    public function update(UpdateProfessorRequest $request, Professor $professor,ProfessorService $professorService)
     {
         //
     }
@@ -60,7 +60,7 @@ class ProfessorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Professor $professor)
+    public function destroy(Professor $professor,ProfessorService $professorService)
     {
         //
     }
