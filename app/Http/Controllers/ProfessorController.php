@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Professor;
 use App\Http\Requests\StoreProfessorRequest;
 use App\Http\Requests\UpdateProfessorRequest;
+use App\services\ProfessorService;
 
 class ProfessorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(ProfessorService $professorService)
     {
-        //
+        return $professorService->index();
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\services\ProfessorService;
 use App\services\StudentService;
 use Illuminate\Support\ServiceProvider;
 
@@ -13,6 +14,7 @@ class AdminServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(StudentService::class,StudentService::class);
+        $this->app->bind(ProfessorService::class,ProfessorService::class);
     }
 
     /**
