@@ -52,10 +52,9 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateStudentRequest $request, Student $student)
+    public function update(UpdateStudentRequest $request, Student $student, StudentService $studentService)
     {
-
-
+        return $studentService->update($request, $student);
     }
 
     /**

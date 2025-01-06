@@ -28,4 +28,13 @@ class StudentService
     {
         return view('admin.students.edit', compact('student'));
     }
+    public function update(Request $request, Student $student){
+        $status=$student->update($request->validated());
+        if($status){
+            return to_route('students.index');
+
+        }else{
+            return to_route('students.edit', $student);
+        }
+    }
 }
