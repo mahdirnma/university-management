@@ -44,9 +44,9 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Student $student)
+    public function edit(Student $student, StudentService $studentService)
     {
-        //
+        return $studentService->edit($student);
     }
 
     /**
@@ -54,7 +54,8 @@ class StudentController extends Controller
      */
     public function update(UpdateStudentRequest $request, Student $student)
     {
-        //
+
+
     }
 
     /**

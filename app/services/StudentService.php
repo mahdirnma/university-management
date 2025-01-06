@@ -23,4 +23,9 @@ class StudentService
             return to_route('students.create');
         }
     }
+
+    public function edit(Student $student)
+    {
+        return view('admin.students.edit', compact('student'));
+    }
 }
