@@ -22,7 +22,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.students.create');
     }
 
     /**
@@ -30,7 +30,12 @@ class StudentController extends Controller
      */
     public function store(StoreStudentRequest $request)
     {
-        //
+        $student=Student::create($request->validated());
+        if($student){
+            return to_route('students.index');
+        }else{
+            return to_route('students.create');
+        }
     }
 
     /**
