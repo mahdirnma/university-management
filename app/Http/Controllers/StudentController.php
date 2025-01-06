@@ -5,37 +5,32 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
+use App\services\StudentService;
 
 class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(StudentService $studentService)
     {
-        $students = Student::where('is_active', 1)->paginate(2);
-        return view('admin.students.index', compact('students'));
+        return $studentService->index();
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(StudentService $studentService)
     {
-        return view('admin.students.create');
+        return $studentService->create();
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreStudentRequest $request)
+    public function store(StoreStudentRequest $request, StudentService $studentService)
     {
-        $student=Student::create($request->validated());
-        if($student){
-            return to_route('students.index');
-        }else{
-            return to_route('students.create');
-        }
+        return $studentService->store($request);
     }
 
     /**
