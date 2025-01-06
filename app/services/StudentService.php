@@ -37,4 +37,8 @@ class StudentService
             return to_route('students.edit', $student);
         }
     }
+    public function destroy(Student $student){
+        $student->update(['is_active' => 0]);
+        return to_route('students.index');
+    }
 }
