@@ -30,7 +30,7 @@ class ProfessorController extends Controller
      */
     public function store(StoreProfessorRequest $request,ProfessorService $professorService)
     {
-        //
+        return $professorService->store($request);
     }
 
     /**

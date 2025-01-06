@@ -3,6 +3,7 @@
 namespace App\services;
 
 use App\Models\Professor;
+use Illuminate\Http\Request;
 
 class ProfessorService
 {
@@ -13,5 +14,14 @@ class ProfessorService
     }
     public function create(){
         return view('admin.professors.create');
+    }
+    public function store(Request $request){
+        $status=Professor::create($request->validated());
+        if($status){
+            return to_route('professors.index');
+
+        }else{
+            return to_route('professors.create');
+        }
     }
 }
