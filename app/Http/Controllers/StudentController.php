@@ -13,7 +13,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = Student::where('is_active', 1)->paginate(2);
+        return view('admin.students.index', compact('students'));
     }
 
     /**
