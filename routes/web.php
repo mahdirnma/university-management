@@ -25,4 +25,6 @@ Route::get('/student', [UserController::class, 'student'])->name('student.dashbo
 Route::get('/student/login', [UserController::class, 'studentLogin'])->name('student.login.show');
 Route::post('/student/login', [AuthController::class, 'studentLogin'])->name('student.login');
 
+Route::get('/professor', [UserController::class, 'professor'])->name('professor.dashboard')->middleware('checkProfessorLogin');
 Route::get('/professor/login', [UserController::class, 'professorLogin'])->name('professor.login.show');
+Route::post('/professor/login', [AuthController::class, 'professorLogin'])->name('professor.login');

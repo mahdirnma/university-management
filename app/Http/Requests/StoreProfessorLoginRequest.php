@@ -11,7 +11,7 @@ class StoreProfessorLoginRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class StoreProfessorLoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255|min:3',
+            'personal_code' => 'required|string|max:255|min:3|exists:professors,personal_code',
         ];
     }
 }

@@ -12,6 +12,9 @@ class UserController extends Controller
     public function student(){
         return view('student.dashboard');
     }
+    public function professor(){
+        return view('professor.dashboard');
+    }
     public function preLogin()
     {
         return view('auth.preLogin');
