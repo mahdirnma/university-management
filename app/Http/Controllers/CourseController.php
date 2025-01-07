@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
+use App\services\CourseService;
 
 class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(CourseService $courseService)
     {
-        //
+        return $courseService->index();
     }
 
     /**
