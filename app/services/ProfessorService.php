@@ -38,4 +38,8 @@ class ProfessorService
             return to_route('professors.edit', $professor);
         }
     }
+    public function destroy(Professor $professor){
+        $professor->update(['is_active' => 0]);
+        return to_route('professors.index');
+    }
 }

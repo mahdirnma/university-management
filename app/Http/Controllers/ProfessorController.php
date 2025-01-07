@@ -62,6 +62,6 @@ class ProfessorController extends Controller
      */
     public function destroy(Professor $professor,ProfessorService $professorService)
     {
-        //
+        return $professorService->destroy($professor);
     }
 }
