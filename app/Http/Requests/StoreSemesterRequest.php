@@ -11,7 +11,7 @@ class StoreSemesterRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class StoreSemesterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'year'=>'required|numeric|digits:4',
+            'half_year'=>'required|numeric|digits:1',
         ];
     }
 }

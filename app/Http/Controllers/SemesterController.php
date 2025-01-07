@@ -28,9 +28,9 @@ class SemesterController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSemesterRequest $request)
+    public function store(StoreSemesterRequest $request,SemesterService $semesterService)
     {
-        //
+        return $semesterService->store($request);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\services;
 
 use App\Models\Semester;
+use Illuminate\Http\Request;
 
 class SemesterService
 {
@@ -13,5 +14,20 @@ class SemesterService
     }
     public function create(){
         return view('admin.semesters.create');
+    }
+
+    public function store(Request $request)
+    {
+        $title=$request->year."0".$request->half_year;
+        $status=Semester::create([
+            ...$request->validated(),
+            'title'=>$title,
+        ]);
+        if($status){
+            return to_route('semesters.index');
+
+        }else{
+            return to_route('semesters.create');
+        }
     }
 }
