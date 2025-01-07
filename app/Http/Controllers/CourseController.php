@@ -20,9 +20,9 @@ class CourseController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(CourseService $courseService)
     {
-        //
+        return $courseService->create();
     }
 
     /**
