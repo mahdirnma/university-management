@@ -3,7 +3,9 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProfessorController;
+use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,4 +36,6 @@ Route::post('/professor/login', [AuthController::class, 'professorLogin'])->name
 
 Route::resource('students', StudentController::class)->except(['show'])->middleware('auth');
 Route::resource('professors', ProfessorController::class)->except(['show'])->middleware('auth');
-Route::resource('courses', CourseController::class)->except(['show'])->middleware('auth');
+Route::resource('courses', CourseController::class)->only(['index','create','store'])->middleware('auth');
+Route::resource('semesters', SemesterController::class)->middleware('auth');
+Route::resource('units', UnitController::class)->middleware('auth');

@@ -5,23 +5,24 @@ namespace App\Http\Controllers;
 use App\Models\Semester;
 use App\Http\Requests\StoreSemesterRequest;
 use App\Http\Requests\UpdateSemesterRequest;
+use App\services\SemesterService;
 
 class SemesterController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(SemesterService $semesterService)
     {
-        //
+        return $semesterService->index();
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(SemesterService $semesterService)
     {
-        //
+        return $semesterService->create();
     }
 
     /**
