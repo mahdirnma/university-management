@@ -29,4 +29,13 @@ class ProfessorService
     {
         return view('admin.professors.edit', compact('professor'));
     }
+    public function update(Request $request, Professor $professor){
+        $status = $professor->update($request->validated());
+        if($status){
+            return to_route('professors.index');
+
+        }else{
+            return to_route('professors.edit', $professor);
+        }
+    }
 }

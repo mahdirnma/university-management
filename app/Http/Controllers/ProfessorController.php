@@ -54,7 +54,7 @@ class ProfessorController extends Controller
      */
     public function update(UpdateProfessorRequest $request, Professor $professor,ProfessorService $professorService)
     {
-        //
+        return $professorService->update($request,$professor);
     }
 
     /**

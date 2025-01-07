@@ -11,7 +11,7 @@ class UpdateProfessorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class UpdateProfessorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255|min:3',
+            'teaching_field' => 'required|string|max:255|min:3',
+            'phone_number' => 'required|string|numeric|max_digits:11|min_digits:11',
         ];
     }
 }
