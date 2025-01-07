@@ -46,7 +46,7 @@ class ProfessorController extends Controller
      */
     public function edit(Professor $professor,ProfessorService $professorService)
     {
-        //
+        return $professorService->edit($professor);
     }
 
     /**

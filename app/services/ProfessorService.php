@@ -24,4 +24,9 @@ class ProfessorService
             return to_route('professors.create');
         }
     }
+
+    public function edit(Professor $professor)
+    {
+        return view('admin.professors.edit', compact('professor'));
+    }
 }
