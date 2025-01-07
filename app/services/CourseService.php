@@ -14,4 +14,13 @@ class CourseService
     public function create(){
         return view('admin.courses.create');
     }
+    public function store($request){
+        $status=Course::create($request->validated());
+        if($status){
+            return to_route('courses.index');
+
+        }else{
+            return to_route('courses.create');
+        }
+    }
 }
