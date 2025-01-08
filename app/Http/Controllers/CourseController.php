@@ -6,6 +6,7 @@ use App\Models\Course;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
 use App\services\CourseService;
+use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
@@ -36,9 +37,9 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Course $course)
+    public function show(Course $course,CourseService $courseService,Request $request)
     {
-        //
+        return $courseService->show($course,$request);
     }
 
     /**

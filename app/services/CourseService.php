@@ -3,6 +3,8 @@
 namespace App\services;
 
 use App\Models\Course;
+use App\Models\Unit;
+use Illuminate\Http\Request;
 
 class CourseService
 {
@@ -22,5 +24,10 @@ class CourseService
         }else{
             return to_route('courses.create');
         }
+    }
+    public function show(Course $course,Request $request){
+        $semester_id=$request->semester;
+        $units=Unit::where('semester_id', $semester_id)->where('course_id',$course->id)->paginate(2);
+        return view('admin.units.index', compact('course','units'));
     }
 }

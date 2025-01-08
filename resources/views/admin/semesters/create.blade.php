@@ -15,7 +15,7 @@
                         <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">
                             <label for="year" class="font-semibold ml-5">: year</label>
                             <select name="year" id="year" class="cursor-pointer w-2/5 h-8 rounded outline-0 pl-2 border border-gray-400">
-                                @for($i=1390 ; $i<=1420; $i++)
+                                @for($i=1390 ; $i<=1420 ; $i++)
                                     <option value="{{$i}}">{{$i}}</option>
                                 @endfor
                             </select>

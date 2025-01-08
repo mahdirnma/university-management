@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Semester;
 use App\Models\Unit;
 use App\Http\Requests\StoreUnitRequest;
 use App\Http\Requests\UpdateUnitRequest;
+use App\services\SemesterService;
 
 class UnitController extends Controller
 {
@@ -13,7 +15,6 @@ class UnitController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**

@@ -36,6 +36,6 @@ Route::post('/professor/login', [AuthController::class, 'professorLogin'])->name
 
 Route::resource('students', StudentController::class)->except(['show'])->middleware('auth');
 Route::resource('professors', ProfessorController::class)->except(['show'])->middleware('auth');
-Route::resource('courses', CourseController::class)->only(['index','create','store'])->middleware('auth');
+Route::resource('courses', CourseController::class)->only(['index','create','store','show'])->middleware('auth');
 Route::resource('semesters', SemesterController::class)->middleware('auth');
 Route::resource('units', UnitController::class)->middleware('auth');

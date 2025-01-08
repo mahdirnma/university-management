@@ -36,9 +36,9 @@ class SemesterController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Semester $semester)
+    public function show(Semester $semester,SemesterService $semesterService)
     {
-        //
+        return $semesterService->show($semester);
     }
 
     /**

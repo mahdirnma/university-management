@@ -2,7 +2,9 @@
 
 namespace App\services;
 
+use App\Models\Course;
 use App\Models\Semester;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 
 class SemesterService
@@ -29,5 +31,12 @@ class SemesterService
         }else{
             return to_route('semesters.create');
         }
+    }
+    public function show(Semester $semester){
+        $courses=Course::where('is_active', 1)->paginate(3);
+        return view('admin.semesters.courses.index', compact('semester','courses'));
+/*        $units=Unit::where('semester_id',$semester->id)->paginate(2);
+        return view('admin.units.index', compact('units','semester'));*/
+
     }
 }
