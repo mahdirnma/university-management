@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\StudentController;
@@ -39,3 +40,4 @@ Route::resource('professors', ProfessorController::class)->except(['show'])->mid
 Route::resource('courses', CourseController::class)->only(['index','create','store','show'])->middleware('auth');
 Route::resource('semesters', SemesterController::class)->middleware('auth');
 Route::resource('units', UnitController::class)->middleware('auth');
+Route::resource('lessons', LessonController::class)->except(['show'])->middleware('auth');

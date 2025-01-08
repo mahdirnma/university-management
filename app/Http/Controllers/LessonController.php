@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Lesson;
 use App\Http\Requests\StoreLessonRequest;
 use App\Http\Requests\UpdateLessonRequest;
+use App\services\LessonService;
 
 class LessonController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(LessonService $lessonService)
     {
-        //
+        return $lessonService->index();
     }
 
     /**

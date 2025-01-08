@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\services\CourseService;
+use App\services\LessonService;
 use App\services\ProfessorService;
 use App\services\SemesterService;
 use App\services\StudentService;
@@ -21,6 +22,7 @@ class AdminServiceProvider extends ServiceProvider
         $this->app->bind(CourseService::class,CourseService::class);
         $this->app->bind(SemesterService::class,SemesterService::class);
         $this->app->bind(UnitService::class,UnitService::class);
+        $this->app->bind(LessonService::class,LessonService::class);
     }
 
     /**
