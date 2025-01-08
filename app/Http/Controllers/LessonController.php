@@ -28,9 +28,9 @@ class LessonController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreLessonRequest $request)
+    public function store(StoreLessonRequest $request,LessonService $lessonService)
     {
-        //
+        return $lessonService->store($request);
     }
 
     /**

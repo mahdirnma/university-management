@@ -76,7 +76,7 @@
                             <label for="type" class="font-semibold ml-5">: type</label>
                             <select name="type" id="type" class="cursor-pointer w-2/5 h-8 rounded outline-0 pl-2 border border-gray-400">
                                 <option value='general'>general</option>
-                                <option value='private'>private</option>
+                                <option value='dedicated'>dedicated</option>
                             </select>
                             @error('type')
                             <p class="text-red-700">{{$message}}</p>

@@ -17,4 +17,12 @@ class LessonService
         $lessons = Lesson::where('is_active', 1)->get();
         return view('admin.lessons.create', compact('courses', 'lessons'));
     }
+    public function store($request){
+        $status=Lesson::create($request->validated());
+        if($status){
+            return to_route('lessons.index');
+        }else{
+            return to_route('lessons.create');
+        }
+    }
 }
