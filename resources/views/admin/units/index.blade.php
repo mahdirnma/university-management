@@ -6,7 +6,11 @@
     <div class="w-full h-[88%] bg-gray-200 flex items-center justify-center">
         <div class="w-[90%] h-5/6 bg-white rounded-xl pt-3 flex flex-col items-center">
             <div class="w-[90%] h-1/5 flex justify-between items-center border-b">
-                <a href="{{route('units.create')}}" class="px-10 py-3 rounded-xl font-light text-white bg-gray-800">add unit +</a>
+                <form action="{{route('units.create')}}" method="get">
+                    <input type="hidden" name="course" value="{{$course->id}}">
+                    <input type="hidden" name="semester" value="{{$semester_id}}">
+                    <button type="submit" class="px-10 py-3 rounded-xl font-light text-white bg-gray-800">add unit +</button>
+                </form>
                 <h2 class="text-xl">{{$course->title}} units</h2>
             </div>
             <div class="w-[90%] h-3/5 flex flex-col justify-center">

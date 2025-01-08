@@ -28,6 +28,6 @@ class CourseService
     public function show(Course $course,Request $request){
         $semester_id=$request->semester;
         $units=Unit::where('semester_id', $semester_id)->where('course_id',$course->id)->paginate(2);
-        return view('admin.units.index', compact('course','units'));
+        return view('admin.units.index', compact('course','units','semester_id'));
     }
 }

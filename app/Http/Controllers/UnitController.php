@@ -7,6 +7,8 @@ use App\Models\Unit;
 use App\Http\Requests\StoreUnitRequest;
 use App\Http\Requests\UpdateUnitRequest;
 use App\services\SemesterService;
+use App\services\UnitService;
+use Illuminate\Http\Request;
 
 class UnitController extends Controller
 {
@@ -20,9 +22,9 @@ class UnitController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(UnitService $unitService,Request $request)
     {
-        //
+        return $unitService->create($request);
     }
 
     /**
