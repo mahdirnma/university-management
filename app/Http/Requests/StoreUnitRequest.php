@@ -11,7 +11,7 @@ class StoreUnitRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class StoreUnitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'lesson_id' => 'required|numeric|exists:lessons,id',
+            'course_id' => 'required|numeric|exists:courses,id',
+            'professor_id' => 'required|numeric|exists:professors,id',
+            'semester_id' => 'required|numeric|exists:semesters,id',
+            'capacity' => 'required|numeric|between:1,100',
         ];
     }
 }

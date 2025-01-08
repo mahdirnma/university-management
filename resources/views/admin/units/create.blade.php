@@ -13,24 +13,24 @@
                     @csrf
                     <div class="w-1/2 h-full flex flex-col items-end pr-20 relative">
                         <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">
-                            <label for="lesson" class="font-semibold ml-5">: lesson</label>
-                            <select name="lesson" id="lesson" class="cursor-pointer w-2/5 h-8 rounded outline-0 pl-2 border border-gray-400">
+                            <label for="lesson_id" class="font-semibold ml-5">: lesson</label>
+                            <select name="lesson_id" id="lesson_id" class="cursor-pointer w-2/5 h-8 rounded outline-0 pl-2 border border-gray-400">
                                 @foreach($lessons as $lesson)
-                                    <option value="{{$lesson->title}}">{{$lesson->title}}</option>
+                                    <option value="{{$lesson->id}}">{{$lesson->title}}</option>
                                 @endforeach
                             </select>
-                            @error('lesson')
+                            @error('lesson_id')
                             <p class="text-red-700">{{$message}}</p>
                             @enderror
                         </div>
                         <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">
-                            <label for="professor" class="font-semibold ml-5">: professor</label>
-                            <select name="lesson" id="lesson" class="cursor-pointer w-2/5 h-8 rounded outline-0 pl-2 border border-gray-400">
+                            <label for="professor_id" class="font-semibold ml-5">: professor</label>
+                            <select name="professor_id" id="professor_id" class="cursor-pointer w-2/5 h-8 rounded outline-0 pl-2 border border-gray-400">
                                 @foreach($professors as $professor)
-                                    <option value="{{$professor->name}}">{{$professor->name}}</option>
+                                    <option value="{{$professor->id}}">{{$professor->name}}</option>
                                 @endforeach
                             </select>
-                            @error('professor')
+                            @error('professor_id')
                             <p class="text-red-700">{{$message}}</p>
                             @enderror
                         </div>
@@ -45,6 +45,8 @@
                     </div>
                     <div class="w-1/2 h-full flex flex-col items-end pr-20">
                     </div>
+                    <input type="hidden" name="course_id" value="{{$course->id}}">
+                    <input type="hidden" name="semester_id" value="{{$semester->id}}">
                 </form>
             </div>
         </div>

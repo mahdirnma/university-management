@@ -30,9 +30,9 @@ class UnitController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUnitRequest $request)
+    public function store(StoreUnitRequest $request,UnitService $unitService)
     {
-        //
+        return $unitService->store($request);
     }
 
     /**

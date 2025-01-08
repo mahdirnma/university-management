@@ -6,6 +6,7 @@ use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Professor;
 use App\Models\Semester;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 
 class UnitService
@@ -17,5 +18,13 @@ class UnitService
         $lessons = Lesson::where('is_active', 1)->where('course_id',$course->id)->get();
         $professors = Professor::where('is_active', 1)->get();
         return view('admin.units.create', compact('lessons', 'professors', 'course', 'semester'));
+    }
+    public function store(Request $request){
+        $status=Unit::create($request->validated());
+        if($status){
+            return to_route('semesters.index');
+        }else{
+            return to_route('units.create');
+        }
     }
 }
