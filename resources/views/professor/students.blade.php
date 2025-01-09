@@ -25,7 +25,11 @@
                             <td class="text-center">
                                 <form action="{{route('master.students.score',compact('unit','registration'))}}" method="get">
                                     @csrf
-                                    <button type="submit" class="text-cyan-600">score</button>
+                                    @if($registration->pivot->score!=null)
+                                    <button type="submit" disabled>{{$registration->pivot->score}}</button>
+                                    @elseif($registration->pivot->score==null)
+                                        <button type="submit" class="text-cyan-600">score</button>
+                                    @endif
                                 </form>
                             </td>
                             <td class="text-center">{{$registration->student->phone_number}}</td>
