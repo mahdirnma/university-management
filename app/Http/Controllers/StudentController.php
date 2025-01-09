@@ -6,15 +6,17 @@ use App\Models\Student;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\services\StudentService;
+use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(StudentService $studentService)
+    public function index(StudentService $studentService,Request $request)
     {
-        return $studentService->index();
+
+        return $studentService->index($request);
     }
 
     /**

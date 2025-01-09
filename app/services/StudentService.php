@@ -7,9 +7,16 @@ use Illuminate\Http\Request;
 
 class StudentService
 {
-    public function index()
+    public function index(Request $request)
     {
-        $students = Student::where('is_active', 1)->paginate(2);
+        $students = Student::where('is_active', 1);
+        if ($request->name) {
+            $students=$students->where('name','like','%'.$request->name.'%');
+        }
+        if ($request->student_number){
+            $students=$students->where('student_number','like','%'.$request->student_number.'%');
+        }
+        $students=$students->paginate(2);
         return view('admin.students.index', compact('students'));
     }
     public function create(){
