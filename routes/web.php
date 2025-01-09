@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CollegianController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\MasterController;
@@ -53,3 +54,8 @@ Route::get('master/units',[MasterController::class,'units'])->name('master.units
 Route::get('master/units/students/{unit}',[MasterController::class,'students'])->name('master.students')->middleware('checkProfessorLogin');
 Route::get('master/units/students/score/{unit}/{registration}',[MasterController::class,'score'])->name('master.students.score')->middleware('checkProfessorLogin');
 Route::post('master/units/students/score/create/{unit}/{registration}',[MasterController::class,'createScore'])->name('student.score.create')->middleware('checkProfessorLogin');
+
+Route::get('collegian/profile',[CollegianController::class,'profile'])->name('collegian.profile')->middleware('checkStudentLogin');
+
+
+
