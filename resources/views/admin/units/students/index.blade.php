@@ -15,6 +15,7 @@
                 <table class="w-full min-h-full border border-gray-400">
                     <thead>
                     <tr class="h-12 border border-gray-400 border-b-2 border-b-gray-400">
+                        <td class="text-center">score</td>
                         <td class="text-center">phone number</td>
                         <td class="text-center">student number</td>
                         <td class="text-center">name</td>
@@ -24,6 +25,7 @@
                     <tbody>
                     @foreach($unit->registrations as $registration)
                         <tr>
+                            <td class="text-center">{{$registration->units->where('id',$unit->id)->first()->pivot->score}}</td>
                             <td class="text-center">{{$registration->student->phone_number}}</td>
                             <td class="text-center">{{$registration->student->student_number}}</td>
                             <td class="text-center">{{$registration->student->name}}</td>
