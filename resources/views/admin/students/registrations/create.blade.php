@@ -9,7 +9,7 @@
                 <h2 class="text-xl">Student Registration</h2>
             </div>
             <div class="flex w-full h-4/5">
-                <form action="{{--{{route('student.registration.store',compact('student'))}}--}}" method="post" class="w-full h-full flex flex-row-reverse">
+                <form action="{{route('students.registration.store',compact('student'))}}" method="post" class="w-full h-full flex flex-row-reverse">
                     @csrf
                     <div class="w-1/2 h-full flex flex-col items-end pr-20 relative">
                         <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">

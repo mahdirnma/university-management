@@ -32,9 +32,28 @@ class RegistrationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRegistrationRequest $request)
+    public function store(StoreRegistrationRequest $request,Student $student)
     {
-        //
+        $semester = Semester::where('is_active',1)->orderBy('id','desc')->first();
+        $semester_id = $semester->id;
+        $unit_id=$request->get('unit_id');
+/*        $unit=Unit::find($unit_id);
+        if ($unit->lesson->lesson){
+
+        }*/
+//        $registrations=$student->registrations->sortByDesc('id')->first();
+        $registration=Registration::where('student_id',$student->id)->where('semester_id',$semester_id)->first();
+/*        if ($registrations->status==0 || !$registrations->status) {
+            return to_route('students.index');
+        }*/
+        if(!$registration){
+            $registration=Registration::create([
+                'semester_id'=>$semester_id,
+                'student_id'=>$student->id
+            ]);
+        }
+        $registration->units()->attach($unit_id);
+        return to_route('students.index');
     }
 
     /**

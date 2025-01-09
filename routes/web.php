@@ -49,7 +49,7 @@ Route::resource('units', UnitController::class)->middleware('auth');
 Route::resource('lessons', LessonController::class)->except(['show'])->middleware('auth');
 
 Route::get('students/registration/create/{student}', [RegistrationController::class, 'create'])->name('students.registration.create')->middleware('auth');
-Route::get('students/registration/store', [RegistrationController::class, 'store'])->name('students.registration.store')->middleware('auth');
+Route::post('students/registration/store/{student}', [RegistrationController::class, 'store'])->name('students.registration.store')->middleware('auth');
 
 Route::get('master/units',[MasterController::class,'units'])->name('master.units')->middleware('checkProfessorLogin');
 Route::get('master/units/students/{unit}',[MasterController::class,'students'])->name('master.students')->middleware('checkProfessorLogin');
