@@ -54,4 +54,10 @@ class AuthController extends Controller
         Auth::logout();
         return to_route('preLogin');
     }
+
+    public function professorLogout()
+    {
+        session()->forget('professor');
+        return to_route('preLogin');
+    }
 }
