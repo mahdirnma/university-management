@@ -3,6 +3,7 @@
 namespace App\services;
 
 use App\Models\Registration;
+use App\Models\Semester;
 use App\Models\Unit;
 use Illuminate\Http\Request;
 
@@ -10,8 +11,9 @@ class MasterService
 {
     public function units()
     {
+        $semesters = Semester::where('is_active', 1)->orderBy('id','desc')->first();
         $professor=session('professor');
-        $units=$professor->units->where('is_active',1);
+        $units=$professor->units->where('is_active',1)->where('semester_id',$semesters->id);
         return view('professor.units',compact('units'));
     }
 

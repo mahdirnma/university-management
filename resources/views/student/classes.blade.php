@@ -25,7 +25,7 @@
                     @foreach($units as $unit)
                         <tr>
                             <td class="text-center">
-                                <form action="{{--{{route('collegian.gpa',compact('unit'))}}--}}" method="get">
+                                <form action="{{route('collegian.gpa',compact('unit'))}}" method="get">
                                     @csrf
                                     <button type="submit" class="text-cyan-600">semester GPA</button>
                                 </form>
