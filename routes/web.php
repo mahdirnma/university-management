@@ -34,6 +34,7 @@ Route::post('/admin/logout', [AuthController::class, 'adminLogout'])->name('admi
 Route::get('/student', [UserController::class, 'student'])->name('student.dashboard')->middleware('checkStudentLogin');
 Route::get('/student/login', [UserController::class, 'studentLogin'])->name('student.login.show');
 Route::post('/student/login', [AuthController::class, 'studentLogin'])->name('student.login');
+Route::post('/student/logout', [AuthController::class, 'studentLogout'])->name('student.logout');
 
 Route::get('/professor', [UserController::class, 'professor'])->name('professor.dashboard')->middleware('checkProfessorLogin');
 Route::get('/professor/login', [UserController::class, 'professorLogin'])->name('professor.login.show');
