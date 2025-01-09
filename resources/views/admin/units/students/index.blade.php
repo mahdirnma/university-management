@@ -7,7 +7,7 @@
         <div class="w-[90%] h-5/6 bg-white rounded-xl pt-3 flex flex-col items-center">
             <div class="w-[90%] h-1/5 flex justify-between items-center border-b">
                 <form action="{{--{{route('units.create')}}--}}" method="get">
-                    <button type="submit" class="px-10 py-3 rounded-xl font-light text-white bg-gray-800">add student +</button>
+{{--                    <button type="submit" class="px-10 py-3 rounded-xl font-light text-white bg-gray-800">add student +</button>--}}
                 </form>
                 <h2 class="text-xl">{{$unit->lesson->title}} students</h2>
             </div>

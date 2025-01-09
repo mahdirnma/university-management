@@ -48,4 +48,10 @@ class AuthController extends Controller
             return to_route('professor.login.show');
         }
     }
+
+    public function adminLogout()
+    {
+        Auth::logout();
+        return to_route('preLogin');
+    }
 }

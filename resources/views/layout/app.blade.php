@@ -24,7 +24,7 @@
                 </ul>
             </nav>
         </div>
-        <form action="{{--{{route('admin.logout')}}--}}" method="post">
+        <form action="{{route('admin.logout')}}" method="post">
             @csrf
             <button type="submit" class="text-red-700 font-bold"><- logout</button>
         </form>
