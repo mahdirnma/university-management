@@ -18,6 +18,7 @@
                     <thead>
                     <tr class="h-12 border border-gray-400 border-b-2 border-b-gray-400">
                         <td class="text-center">students</td>
+                        <td class="text-center">remain capacity</td>
                         <td class="text-center">capacity</td>
                         <td class="text-center">professor</td>
                         <td class="text-center">lesson</td>
@@ -34,6 +35,7 @@
                                     <button type="submit" class="text-cyan-600">students</button>
                                 </form>
                             </td>
+                            <td class="text-center">{{$unit->capacity-$unit->registrations->count()}}</td>
                             <td class="text-center">{{$unit->capacity}}</td>
                             <td class="text-center">{{$unit->professor->name}}</td>
                             <td class="text-center">{{$unit->lesson->title}}</td>
