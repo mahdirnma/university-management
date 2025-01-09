@@ -23,4 +23,9 @@ class MasterController extends Controller
     {
         return $masterService->score($unit,$registration);
     }
+
+    public function createScore(MasterService $masterService,Unit $unit,Registration $registration,Request $request)
+    {
+        return $masterService->createScore($unit,$registration,$request);
+    }
 }

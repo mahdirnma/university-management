@@ -4,6 +4,7 @@ namespace App\services;
 
 use App\Models\Registration;
 use App\Models\Unit;
+use Illuminate\Http\Request;
 
 class MasterService
 {
@@ -22,7 +23,13 @@ class MasterService
 
     public function score(Unit $unit,Registration $registration)
     {
-//        $student=$unit->registrations;
         return view('professor.score',compact('unit','registration'));
+    }
+
+    public function createScore(Unit $unit,Registration $registration,Request $request)
+    {
+        $unit->registrations()->detach($registration);
+        $unit->registrations()->attach($registration,['score'=>$request->score]);
+        return to_route('master.students',compact('unit'));
     }
 }
