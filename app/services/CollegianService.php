@@ -41,6 +41,14 @@ class CollegianService
             $gpa+=$score[$i];
         }
         $gpa=$gpa/$count;
+        $status=false;
+        if ($gpa>=12){
+            $status=true;
+        }
+        $registration->update([
+            'gpa'=>$gpa,
+            'status'=>$status
+        ]);
         return view('student.gpa',compact('student','gpa','registration'));
     }
 }
