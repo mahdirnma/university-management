@@ -49,3 +49,5 @@ Route::resource('lessons', LessonController::class)->except(['show'])->middlewar
 Route::post('unit/student/create', [RegistrationController::class, 'studentStore'])->name('unit.student.store')->middleware('auth');*/
 
 Route::get('master/units',[MasterController::class,'units'])->name('master.units')->middleware('checkProfessorLogin');
+Route::get('master/units/students/{unit}',[MasterController::class,'students'])->name('master.students')->middleware('checkProfessorLogin');
+Route::get('master/units/students/score/{unit}/{registration}',[MasterController::class,'score'])->name('master.students.score')->middleware('checkProfessorLogin');
