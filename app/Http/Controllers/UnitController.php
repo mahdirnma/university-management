@@ -38,9 +38,9 @@ class UnitController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Unit $unit)
+    public function show(Unit $unit,UnitService $unitService)
     {
-        //
+        return $unitService->show($unit);
     }
 
     /**

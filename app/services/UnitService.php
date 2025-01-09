@@ -27,4 +27,11 @@ class UnitService
             return to_route('units.create');
         }
     }
+
+    public function show(Unit $unit)
+    {
+        $semester_id=$unit->semester_id;
+        $students=$unit->registrations->where('is_active',1)->where('semester_id',$semester_id);
+        return view('admin.units.students.index', compact('unit', 'students'));
+    }
 }

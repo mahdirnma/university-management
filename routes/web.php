@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ProfessorController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UnitController;
@@ -41,3 +42,6 @@ Route::resource('courses', CourseController::class)->only(['index','create','sto
 Route::resource('semesters', SemesterController::class)->middleware('auth');
 Route::resource('units', UnitController::class)->middleware('auth');
 Route::resource('lessons', LessonController::class)->except(['show'])->middleware('auth');
+
+Route::get('unit/student/create', [RegistrationController::class, 'studentCreate'])->name('unit.student.create')->middleware('auth');
+Route::post('unit/student/create', [RegistrationController::class, 'studentStore'])->name('unit.student.store')->middleware('auth');
