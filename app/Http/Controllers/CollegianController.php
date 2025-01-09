@@ -11,4 +11,9 @@ class CollegianController extends Controller
     {
         return $collegianService->profile();
     }
+
+    public function classes(CollegianService $collegianService)
+    {
+        return $collegianService->classes();
+    }
 }
