@@ -28,7 +28,7 @@ class CollegianService
     {
         $semester=$unit->semester_id;
         $student=session('student');
-        $registration=$student->registrations->sortByDesc('id')->first();
+        $registration=$student->registrations->where('semester_id',$semester)->sortByDesc('id')->first();
         $units=$registration->units->where('semester_id',$semester);
         $score=[];
         foreach ($units as $unit) {
@@ -49,6 +49,16 @@ class CollegianService
             'gpa'=>$gpa,
             'status'=>$status
         ]);
-        return view('student.gpa',compact('student','gpa','registration'));
+        $allGpa=[];
+        $registrations=$student->registrations->sortByDesc('id');
+        foreach ($registrations as $row) {
+            array_push($allGpa,$row->gpa);
+        }
+        $overall=0;
+        for ($i=0;$i<count($allGpa);$i++) {
+            $overall+=$allGpa[$i];
+        }
+        $overall=$overall/count($allGpa);
+        return view('student.gpa',compact('student','gpa','registration','overall'));
     }
 }

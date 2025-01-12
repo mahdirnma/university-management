@@ -7,6 +7,9 @@
         <div class="w-[90%] h-5/6 bg-white rounded-xl pt-3 flex flex-col items-center">
             <div class="w-[90%] h-1/5 flex justify-between items-center border-b">
                 <h2 class="text-xl">{{$student->name}} {{$registration->semester->title}} semester gpa</h2>
+                <div class="w-2/6 h-4/5 flex items-center justify-end font-semibold text-xl">
+                    overall gpa : {{$overall}}
+                </div>
             </div>
             <div class="w-[90%] h-3/5 flex flex-col justify-center">
                 <table class="w-full min-h-full border border-gray-400">
